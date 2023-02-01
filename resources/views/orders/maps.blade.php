@@ -7,41 +7,26 @@
 
 <div id="map" style="height: 500px;"></div>
 
+<script>    
+    
+    var ceps = [<?php foreach($orders as $order) {echo intval($order->zipcode) . ',';} ?>]; //Consultando os ceps do Banco de dados
+    var points = []; //Salvando as coordenadas obtidas através do cep
+    var markers = []; //Inserindo os marcadores
+    var map;
 
-<?php
+    (function searchCep() {
+        //Função para buscar as coordenadas a partir do cep
 
-foreach ($orders as $order) {
-    echo "<p class='ceps'>$order->zipcode</p>";
-}
-?>
+        ceps.forEach(async (cep)=>{
+            let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cep}&key=AIzaSyA1_i3iEG1p-ST_UBqF1R-2YG870NMOyWY`);
+            let coords = await response.json();
+            lat = Number(coords.results[0].geometry.location.lat);
+            lng = Number(coords.results[0].geometry.location.lng);
 
-
-
-<script>
-    let ceps = document.querySelectorAll('.ceps');
-    console.log(ceps[0])
-    let points = [];
-
-    let map;
-    let markers = [];
-
-    function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: {
-                lat: -7.121268,
-                lng: -34.880279
-            },
-            zoom: 8,
-        });
-        var position = new google.maps.LatLng(-7.121268, -34.880279);
-
-        var marker = new google.maps.Marker({
-            position: position,
-            map: map
-        });
-
-        habilitarMarker();
-    }
+            let coord = {lat: lat, lng: lng};
+            points.push(coord);
+        });          
+    })
 
     function habilitarMarker() {
         $.each(points, function(key, point) {
@@ -56,27 +41,20 @@ foreach ($orders as $order) {
         })
     }
 
-    window.initMap() = initMap();
 
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: {
+                lat: -7.121268,
+                lng: -34.880279
+            },
+            zoom: 8,
+        });       
 
-
-    async function searchCep() {
-
-        let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cep}&key=AIzaSyA1_i3iEG1p-ST_UBqF1R-2YG870NMOyWY`);
-
-        let coords = await response.json();
-
-        lat = Number(coords.results[0].geometry.location.lat);
-        lng = Number(coords.results[0].geometry.location.lng);
-
-        console.log(lat)
-        console.log(lng)
-
-        window.initMap = initMap;
-
-
-
+        habilitarMarker();
     }
+    
+    window.initMap() = initMap();
 </script>
 
 @endsection

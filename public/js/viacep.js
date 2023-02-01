@@ -8,7 +8,6 @@ function cleanFormCep() {
 function myCallback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
-        console.log(conteudo)
         document.getElementById('rua').value = (conteudo.logradouro);
         document.getElementById('bairro').value = (conteudo.bairro);
         document.getElementById('cidade').value = (conteudo.localidade);

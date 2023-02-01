@@ -17,7 +17,7 @@
             <input type="date" name="date" class="form-control">
 
             <label for="">Cep</label>
-            <input type="number" name="zipcode" id="cep" class="form-control" onblur="searchCep(this.value);" />
+            <input type="text" name="zipcode" id="cep" class="form-control" onblur="searchCep(this.value);" />
 
             <label for="">Endereço</label>
             <input type="text" name="street_name" id="rua" class="form-control">
