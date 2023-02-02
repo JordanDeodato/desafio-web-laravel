@@ -46,6 +46,7 @@ class OrderController extends Controller
         $order->city = $request->city;
         $order->state = $request->state;
         $order->zipcode = $request->zipcode;
+        $order->coords = $request->coords;
         $order->status = $request->status;
         $order->amount = $request->amount;
         $order->details = $request->details;

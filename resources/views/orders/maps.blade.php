@@ -9,24 +9,9 @@
 
 <script>    
     
-    var ceps = [<?php foreach($orders as $order) {echo intval($order->zipcode) . ',';} ?>]; //Consultando os ceps do Banco de dados
-    var points = []; //Salvando as coordenadas obtidas através do cep
+    var points = [<?php foreach($orders as $order) {echo ($order->coords) . ',';} ?>]; //Salvando as coordenadas obtidas do banco
     var markers = []; //Inserindo os marcadores
     var map;
-
-    (function searchCep() {
-        //Função para buscar as coordenadas a partir do cep
-
-        ceps.forEach(async (cep)=>{
-            let response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${cep}&key=AIzaSyA1_i3iEG1p-ST_UBqF1R-2YG870NMOyWY`);
-            let coords = await response.json();
-            lat = Number(coords.results[0].geometry.location.lat);
-            lng = Number(coords.results[0].geometry.location.lng);
-
-            let coord = {lat: lat, lng: lng};
-            points.push(coord);
-        });          
-    })
 
     function habilitarMarker() {
         $.each(points, function(key, point) {

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('city', 50);
             $table->string('state', 10);
             $table->string('zipcode', 50);
+            $table->string('coords', 50)->nullable();
             $table->string('status', 50);
             $table->string('amount', 50);
             $table->longText('details')->nullable();
