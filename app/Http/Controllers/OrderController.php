@@ -9,20 +9,20 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class OrderController extends Controller
 {
+
     public function index()
     {
         $search = request('search');
 
-        if($search) {
+        if ($search) {
 
             $orders = Order::where([
                 ['name', 'like', '%' . $search . '%']
             ])->get();
-
         } else {
             $orders = Order::all();
         }
-        
+
 
         return view('orders.index', ['orders' => $orders, 'search' => $search]);
     }
@@ -77,16 +77,35 @@ class OrderController extends Controller
         return redirect('/orders')->with('msg', 'Pedido alterado com sucesso!');
     }
 
-    public function export() 
+    public function export()
     {
         return Excel::download(new OrdersExport, 'Lista de Pedidos.xlsx');
     }
 
-    public function maps() {
+    public function maps()
+    {
 
-        $orders = Order::all();
+        $data_inicio = request('data_inicio');
+        $data_fim = request('data_fim');
+        $search = request('search');
 
-        return View('/orders/maps', ['orders' => $orders]);
+        if ($data_inicio && $data_fim) {
+
+            $orders = Order::whereBetween('date', [$data_inicio, $data_fim])->get();
+        } else if ($search) {
+
+            $orders = Order::where([
+                ['district', 'like', '%' . $search . '%']
+            ])->get();
+        } else {
+            $orders = Order::all();
+        }
+
+
+
+
+
+
+        return View('/orders/maps', ['orders' => $orders, 'search' => $search, 'data_inicio' => $data_inicio, 'data_fim' => $data_fim]);
     }
-
 }

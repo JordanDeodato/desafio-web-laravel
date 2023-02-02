@@ -47,7 +47,7 @@
 
         </div>
     </div>
-    <input class="btn btn-primary m-2" type="submit" value="Cadastrar pedido">
+    <input class="btn m-2" style="background-color: #FB6090; color:#fff;" type="submit" value="Cadastrar pedido">
 </form>
 
 <script>

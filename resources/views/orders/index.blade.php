@@ -3,7 +3,7 @@
 
 <form class="form-inline my-2 my-lg-0" method="GET" action="/orders">
 	<input class="form-control mr-sm-2" type="search" placeholder="Procurar pedido" aria-label="Search" name="search">
-	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+	<button class="btn my-2 my-sm-0" style="background-color: #FB6090; color:#fff;" type="submit">Pesquisar</button>
 </form>
 
 @if($search)
@@ -15,7 +15,7 @@
 
 @if(count($orders) > 0)
 <form action="/orders/export/" method="GET">
-	<input class="btn btn-primary m-2" type="submit" value="Fazer download da planilha de pedidos">
+	<input class="btn m-2" style="background-color: #FB6090; color:#fff;" type="submit" value="Fazer download da planilha de pedidos">
 </form>
 
 @endif
