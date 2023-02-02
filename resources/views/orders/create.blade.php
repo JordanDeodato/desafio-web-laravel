@@ -54,7 +54,6 @@
     let coord = document.getElementById('coords');
     let lat;
     let lng;
-    
 
     async function searchCoords() {
         //Função para buscar as coordenadas a partir do cep

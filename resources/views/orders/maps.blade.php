@@ -50,7 +50,6 @@
 
 </main>
 
-
 <script>
     $(document).ready(function() {
         $('#searchDistrict').hide();
@@ -74,9 +73,6 @@
     function cleanFilter() {
         return window.location.href = "/orders/maps";
     }
-
-
-
 
     var points = [<?php foreach ($orders as $order) {
                         echo ($order->coords) . ',';

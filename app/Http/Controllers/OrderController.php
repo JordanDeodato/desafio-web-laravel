@@ -23,7 +23,6 @@ class OrderController extends Controller
             $orders = Order::all();
         }
 
-
         return view('orders.index', ['orders' => $orders, 'search' => $search]);
     }
 
@@ -100,11 +99,6 @@ class OrderController extends Controller
         } else {
             $orders = Order::all();
         }
-
-
-
-
-
 
         return View('/orders/maps', ['orders' => $orders, 'search' => $search, 'data_inicio' => $data_inicio, 'data_fim' => $data_fim]);
     }

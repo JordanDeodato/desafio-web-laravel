@@ -12,7 +12,6 @@
 <h1 class="text-center">Lista de Pedidos</h1>
 @endif
 
-
 @if(count($orders) > 0)
 <form action="/orders/export/" method="GET">
 	<input class="btn m-2" style="background-color: #FB6090; color:#fff;" type="submit" value="Fazer download da planilha de pedidos">
@@ -59,7 +58,6 @@
 	</tbody>
 </table>
 
-
 @if(count($orders) == 0 && $search)
 <div class="alert alert-info" role="alert">
 	Não há pedidos cadastrados com esse nome! <a href="/orders">Ver todos</a>
@@ -69,6 +67,5 @@
 	Não há pedidos cadastrados
 </div>
 @endif
-
 
 @endsection
