@@ -22,7 +22,7 @@
 <table class="table table-striped table-bordered">
 	<thead>
 		<tr>
-			<th scope="col">#</th>
+			<th scope="col">ID</th>
 			<th scope="col">Nome</th>
 			<th scope="col">Telefone</th>
 			<th scope="col">Data do pedido</th>

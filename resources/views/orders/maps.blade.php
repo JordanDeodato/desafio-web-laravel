@@ -86,7 +86,8 @@
 
             var marker = new google.maps.Marker({
                 position: position,
-                map: map
+                map: map,
+                title: "Pedido " + (key + 1)
             });
 
             markers.push(marker);

@@ -17,7 +17,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFC5D0;">
-        <a class="navbar-brand font-weight-bold" href="/orders">Rita Cookies</a>
+        <a class="navbar-brand font-weight-bold" href="/">Rita Cookies</a>
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

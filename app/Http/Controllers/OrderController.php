@@ -78,7 +78,7 @@ class OrderController extends Controller
 
     public function export()
     {
-        return Excel::download(new OrdersExport, 'Lista de Pedidos.xlsx');
+        return Excel::download(new OrdersExport, 'Lista de Pedidos - '. date("d-m-Y") .'.xlsx');
     }
 
     public function maps()
